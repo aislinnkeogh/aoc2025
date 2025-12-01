@@ -1,0 +1,5 @@
+## Python-related peripheral stuff:
+.ipynb_checkpoints
+__pycache__
+
+input/
