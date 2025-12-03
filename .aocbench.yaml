@@ -1,0 +1,9 @@
+version: 1
+author: Shleen
+language: Python
+dockerfile: docker/Dockerfile
+code: /code
+cmd: ./code/script/day%zeroday%.py
+daypath: code/script/day%zeroday%.py
+inputfile: input/day%zeroday%.txt
+answerfile: answers/day%zeroday%.txt
