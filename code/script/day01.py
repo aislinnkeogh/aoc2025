@@ -12,11 +12,7 @@ def solve(instructions):
         n = 1 if direction=="R" else -1
         for i in range(steps):
             dial += n
-            if dial > 99:
-                dial = 0
-            elif dial < 0:
-                dial = 99
-            # dial = 0 if dial > 99 else 99 if dial < 0 else dial # reset if out of bounds
+            dial = 0 if dial > 99 else 99 if dial < 0 else dial # reset if out of bounds
             part2 += dial==0
         part1 += dial==0
 
