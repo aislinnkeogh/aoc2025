@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 with open('input/day03.txt') as f:
-    batteries = [[x for x in line.strip()] for line in f]
+    batteries = [line.strip() for line in f]
 
 def max_joltage(bank, n_batteries):
     # the ith digit in the number should be the highest number in the bank which is more than n_batteries-i from the end
