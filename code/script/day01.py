@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-with open('../input/day01.txt') as f:
-    instructions = [(line[0], int(line[1:])) for line.strip() in f]
+with open('input/day01.txt') as f:
+    instructions = [(line[0], int(line[1:])) for line in f]
 
 def solve(instructions):
     part1 = 0
