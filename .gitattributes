@@ -1,2 +1,5 @@
 #pattern  filter=crypt diff=crypt merge=crypt
 input/day*.txt filter=crypt diff=crypt merge=crypt
+input/day01.txt  filter=crypt diff=crypt merge=crypt
+input/day02.txt  filter=crypt diff=crypt merge=crypt
+input/day03.txt  filter=crypt diff=crypt merge=crypt
