@@ -35,7 +35,6 @@ class Grid:
 
         contents = []
         for i, j in positions:
-            # if all(cond() for cond in conditions)
             if any(cond for cond in [i<0, j<0, i>=self.shape[1], j>=self.shape[0]]): # position doesn't exist: out of bounds
                 pass
             else:
