@@ -13,13 +13,15 @@ def max_joltage(bank, n_batteries):
         bank = bank[idx+1:]
     return int("".join(digits))
 
-part1 = 0
-for bank in batteries:
-    part1 += max_joltage(bank, 2)
+def solve(batteries):
+    part1 = 0
+    part2 = 0
+    for bank in batteries:
+        part1 += max_joltage(bank, 2)
+        part2 += max_joltage(bank, 12)
+    return part1, part2
 
-part2 = 0
-for bank in batteries:
-    part2 += max_joltage(bank, 12)
+part1, part2 = solve(batteries)
 
 print(part1)
 print(part2)
