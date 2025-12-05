@@ -1,10 +1,19 @@
 #!/usr/bin/env python
 
+import bisect
+
 with open('input/day05.txt') as f:
     lines = [line.strip() for line in f]
 break_point = lines.index('')
 ranges = [[int(n) for n in r.split("-")] for r in lines[:break_point]]
 ids = [int(n) for n in lines[break_point+1:]]
+
+def in_range(n, ranges, startpoints):
+    i = bisect.bisect_right(startpoints, n) - 1
+    if i >= 0:
+        start, stop = ranges[i]
+        return start <= n <= stop
+    return False
 
 def solve(ranges, ids):
     ranges.sort(key=lambda r: r[0]) # sort by start so we only have to compare each range against the previous one to see if there's any overlap
@@ -14,7 +23,9 @@ def solve(ranges, ids):
             merged_ranges.append([start, stop])
         else: # overlap: set the end point of the previous range to whichever is higher out of it and the end point of the current range
             merged_ranges[-1][1] = max(merged_ranges[-1][1], stop)
-    part1 = sum(ingredient >= start and ingredient <= stop for ingredient in ids for start, stop in merged_ranges)
+    startpoints = [r[0] for r in merged_ranges]
+    # part1 = sum(ingredient >= start and ingredient <= stop for ingredient in ids for start, stop in merged_ranges)
+    part1 = sum(in_range(ingredient, merged_ranges, startpoints) for ingredient in ids)
     part2 = sum(stop - start + 1 for start, stop in merged_ranges)
     return part1, part2
 
